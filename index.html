@@ -1,12 +1,6 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <script>
-      const counter = setInterval(() => {
-        let count = Number(document.getElementById("counter").innerText.split("$")[1].replace(/,/g, ''));
-        count += 1;
-        document.getElementById("counter").innerText = `USD $ ${count.toLocaleString()}`;
-      }, 86400 / 300000);
-    </script>
     <style>
       * {
         padding: 0;
@@ -28,8 +22,8 @@
         gap: 10px;
       }
       .container {
-        width: 68vmin;
-        height: 30vmin;
+        width: 64vmin;
+        height: 28vmin;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -45,19 +39,28 @@
         font-size: 50em;
         text-align: center;
       }
-      span#counter {
+      .counter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
         color: #ffffff;
-        display: grid;
-        place-items: center;
-        font-weight: 600;
-        font-size: 3em;
+        font-size: 3.5em;
+      }
+      .counter-value {
+        display: flex;
+        align-items: center;
+      }
+      .counter-value span:not(:last-child) {
+        margin-right: 5px;
       }
       span#first-line-text {
         color: #ffffff;
         display: grid;
         place-items: center;
         font-weight: 700;
-        font-size: 1.2em;
+        font-size: 1.5em;
       }
       span.text {
         color: #e0e0e0;
@@ -91,7 +94,7 @@
         i {
           font-size: 40em;
         }
-        span#counter {
+        .counter {
           font-size: 2em;
         }
       }
@@ -102,8 +105,35 @@
       <div class="container">
         <i class="fas fa-dollar-sign"></i>
         <span id="first-line-text">LES REVENUS MANQUÉS EN RDC</span>
-        <span id="counter">USD $85,638,921</span>
-        <span class="text">Basé sur la perte de $300K de revenus fiscaux par jour de la part d'AVZ / retard de la mine de Manono en raison de la corruption ministérielle.</span>
-      </div>
-    </div>
- 
+        <div class="counter">
+          <div class="counter-value">
+            <span>$</span><span id="count">0</span><span>+</span>
+          </div>
+        </div>
+        <span class="text">Avec une perte de 300 000 $ par jour depuis la suspension d'AVZ et le retard<br>de la construction de la mine de Manono dû à la corruption ministérielle
+
+
+	<script>
+	// set start date as May 11, 2022
+	const startDate = new Date("May 11, 2022 00:00:00");
+
+	// set the amount to accrue per day in USD
+	const amountPerDay = 300000;
+
+	function updateCounter() {
+	  // calculate the number of seconds elapsed since the start date
+	  const elapsedSeconds = Math.floor((new Date() - startDate) / 1000);
+
+	  // calculate the total amount accrued
+	  const totalAmount = elapsedSeconds * amountPerDay / (60 * 60 * 24);
+
+	  // update the counter value
+	  const countElement = document.getElementById("count");
+	  countElement.textContent = totalAmount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+	}
+
+	// update the counter every second
+	setInterval(updateCounter, 1000);
+	</script>
+</body>
+</html>
