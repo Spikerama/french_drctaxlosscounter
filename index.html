@@ -10,94 +10,97 @@
   <meta property="og:url" content="https://spikerama.github.io/french_drctaxlosscounter/">
   <meta property="og:type" content="website">
   <title>DRC Lost Revenue Counter</title>
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
-      body {
-        background-color: #121317;
-      }
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background-color: #121317;
+    }
+    .wrapper {
+      position: absolute;
+      width: 80vw;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      width: 64vmin;
+      height: 28vmin;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 2em 0;
+      position: relative;
+      font-size: 16px;
+      border-radius: 0.5em;
+      background-color: #21242b;
+      border-bottom: 10px solid #18f98f;
+      margin-top: calc((100vh - 28vmin) / 2);
+    }
+    i {
+      color: #18f98f;
+      font-size: 50em;
+      text-align: center;
+    }
+    .counter {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #ffffff;
+      font-size: 3.5em;
+    }
+    .counter-value {
+      display: flex;
+      align-items: center;
+    }
+    .counter-value span:not(:last-child) {
+      margin-right: 5px;
+    }
+    span#first-line-text {
+      color: #18f98f;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1.5em;
+    }
+    span.text {
+      color: #e0e0e0;
+      font-size: 1em;
+      text-align: center;
+      padding: 0.3em 0;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    @media screen and (max-width: 1024px) {
       .wrapper {
-        position: absolute;
-        width: 80vw;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
-        display: flex;
-        justify-content: space-around;
-        gap: 10px;
+        width: 85vw;
       }
       .container {
-        width: 64vmin;
-        height: 28vmin;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        padding: 2em 0;
-        position: relative;
-        font-size: 16px;
-        border-radius: 0.5em;
-        background-color: #21242b;
-        border-bottom: 10px solid #18f98f;
+        width: 50vw;
+        font-size: 12px;
       }
-      i {
-        color: #18f98f;
-        font-size: 50em;
-        text-align: center;
+    }
+    @media screen and (max-width: 768px) {
+      .wrapper {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 30px;
+        height: auto;
       }
-      .counter {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        color: #ffffff;
-        font-size: 3.5em;
-      }
-      .counter-value {
-        display: flex;
-        align-items: center;
-      }
-      .counter-value span:not(:last-child) {
-        margin-right: 5px;
-      }
-      span#first-line-text {
-        color: #18f98f;
-        display: grid;
-        place-items: center;
-        font-weight: 700;
-        font-size: 1.5em;
-      }
-      span.text {
-        color: #e0e0e0;
-        font-size: 1em;
-        text-align: center;
-        padding: 0.3em 0;
-        font-weight: 400;
-        line-height: 1.5;
-      }
-      @media screen and (max-width: 1024px) {
-        .wrapper {
-          width: 85vw;
-        }
-        .container {
-          width: 50vw;
-          height: 20vw;
-          font-size: 12px;
-        }
-      }
-      @media screen and (max-width: 768px) {
-        .wrapper {
-          width: 90vw;
-          flex-wrap: wrap;
-          gap: 30px;
-        }
-        .container {
-          width: calc(100% - 40px);
-          height: 35vw;
+      .container {
+        width: 100%;
+        height: auto;
           font-size: 14px;
         }
         i {
@@ -120,7 +123,6 @@
           </div>
         </div>
         <span class="text">Avec une perte de 300 000 $ par jour depuis la suspension d'AVZ et le retard<br>de la construction de la mine de Manono dû à la corruption ministérielle
-
 
 	<script>
 	// set start date as May 11, 2022
